@@ -1,0 +1,11 @@
+<launch>
+
+  <!-- Start kr10 moveit -->
+  <include file="$(find kr10_moveit)/launch/start_moveit_connected_with_gz.launch"/>
+  
+  <!-- spawn model -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find kuka_kr10_urdf)/urdf/boxe.urdf -urdf -model boxes" />
+  
+  <!--node pkg="kr10_scan" type="scan.py" name="scanner" output="screen"/-->
+  
+</launch>

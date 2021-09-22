@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="kr10">>
+
+  <!-- common stuff // load kr_arm_gazebo macro -->
+  <xacro:include filename="$(find kuka_kr10_urdf)/urdf/common.gazebo.xacro" />
+
+  <!-- load kr10_robot & camera macros  -->
+  <xacro:include filename="$(find kuka_kr10_urdf)/urdf/kr10.urdf.xacro" />
+  <xacro:include filename="$(find kuka_kr10_urdf)/urdf/camera.xacro" />
+
+  <!-- execute macros -->
+  <xacro:kr10_robot prefix=""/>
+  <xacro:camera />
+  
+  <!--link name="world" />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint-->
+  
+</robot>

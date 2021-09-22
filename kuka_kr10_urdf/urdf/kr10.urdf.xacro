@@ -1,0 +1,368 @@
+<?xml version="1.0"?>
+
+<robot xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://ros.org/wiki/xacro"
+       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+       
+  <xacro:include filename="$(find kuka_kr10_urdf)/urdf/kr10.transmission.xacro" />
+  <xacro:include filename="$(find kuka_kr10_urdf)/urdf/kr10.gazebo.xacro" />
+  
+  <xacro:property name="damping" value="0.2" />
+  <xacro:property name="friction" value="1.0" />
+
+
+<xacro:macro name="default_inertia">
+  <inertia ixx="0.1" ixy="0.000"  ixz="0.000"  
+           iyy="0.1" iyz="0.000"
+           izz="0.1"
+  /> 
+</xacro:macro>
+ 
+<xacro:macro name="kr10_robot" params="prefix">
+
+  <link name="world" />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.005" rpy="0.0 0.0 0.0" />
+  </joint>
+  
+<!-- Kinematic model -->
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.044481 -5.0058E-05 0.10609"
+        rpy="0 0 0" />
+      <mass
+        value="10.507" />
+      <xacro:default_inertia />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_1">
+    <inertial>
+      <origin
+        xyz="0.00796588282256565 0.00201742612994055 0.115716194551813"
+        rpy="0 0 0" />
+      <mass
+        value="6.2752263325597" />
+      <xacro:default_inertia />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_1"
+    type="continuous">
+    <origin
+      xyz="0 0 0.213"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort="100.0" lower="${radians(-170)}" upper="${radians(170)}" velocity="3.0"/>
+    <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="-0.0083425 -0.0044476 0.26096"
+        rpy="0 0 0" />
+      <mass
+        value="10.062" />
+      <xacro:default_inertia />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_2"
+    type="continuous">
+    <origin
+      xyz="0.025 0 0.183"
+      rpy="0 0.030324 0" />
+    <parent
+      link="Link_1" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="100.0" lower="${radians(-190)}" upper="${radians(45)}" velocity="3.0"/>
+    <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="Link_3">
+    <inertial>
+      <origin
+        xyz="0.01607 2.4742E-05 0.010478"
+        rpy="0 0 0" />
+      <mass
+        value="2.8742" />
+      <xacro:default_inertia />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_3"
+    type="continuous">
+    <origin
+      xyz="0 0 0.56"
+      rpy="0 -0.030324 0" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Link_3" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="100.0" lower="${radians(-120)}" upper="${radians(156)}" velocity="3.0"/>
+    <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="Link_4">
+    <inertial>
+      <origin
+        xyz="0.195135071129115 -0.000495676139749157 0.000329967769836514"
+        rpy="0 0 0" />
+      <mass
+        value="4.03663145228616" />
+      <xacro:default_inertia />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_4"
+    type="continuous">
+    <origin
+      xyz="0.10698 0 0.035"
+      rpy="0 0 0" />
+    <parent
+      link="Link_3" />
+    <child
+      link="Link_4" />
+    <axis
+      xyz="1 0 0" />
+    <limit effort="100.0" lower="${radians(-185)}" upper="${radians(185)}" velocity="3.0"/>
+    <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="Link_5">
+    <inertial>
+      <origin
+        xyz="0.016609 0.0018881 -2.9968E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.44798" />
+      <xacro:default_inertia />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_5"
+    type="continuous">
+    <origin
+      xyz="0.40802 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link_4" />
+    <child
+      link="Link_5" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="100.0" lower="${radians(-120)}" upper="${radians(120)}" velocity="3.0"/>
+    <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="Link_6">
+    <inertial>
+      <origin
+        xyz="0.00597810440147417 5.10702591327572E-15 4.33845548888367E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.013916296749675" />
+      <xacro:default_inertia />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_6"
+    type="continuous">
+    <origin
+      xyz="0.0665 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link_5" />
+    <child
+      link="Link_6" />
+    <axis
+      xyz="1 0 0" />
+    <limit effort="100.0" lower="${radians(-180)}" upper="${radians(180)}" velocity="3.0"/>
+    <!--dynamics damping="${damping}" friction="${friction}"/-->
+  </joint>
+  
+  <xacro:kr_arm_transmission prefix="" />
+  <xacro:kr_arm_gazebo prefix="" />
+    
+  </xacro:macro>
+  
+ </robot>

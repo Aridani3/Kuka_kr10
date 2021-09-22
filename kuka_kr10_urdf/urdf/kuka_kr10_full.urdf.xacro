@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="kuka_kr10_urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+ 
+  <!-- Used for fixing robot to Gazebo 'base_link' -->
+  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.044481 -5.0058E-05 0.10609"
+        rpy="0 0 0" />
+      <mass
+        value="10.507" />
+      <inertia
+        ixx="0.066671" ixy="-9.8524E-05" ixz="-0.0011313" iyy="0.10732" iyz="-1.7052E-05" izz="0.094826" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_1">
+    <inertial>
+      <origin
+        xyz="0.00796588282256565 0.00201742612994055 0.115716194551813"
+        rpy="0 0 0" />
+      <mass
+        value="6.2752263325597" />
+      <inertia
+        ixx="0.0762046052454029" ixy="1.04764644326236E-05" ixz="-0.00530114994506598" iyy="0.0500774365599559" iyz="-0.000516536616616264" izz="0.0562676606189768" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_1"
+    type="continuous">
+    <origin
+      xyz="0 0 0.213"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort="100.0" lower="${radians(-170)}" upper="${radians(170)}" velocity="3.0"/>
+  </joint>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="-0.0083425 -0.0044476 0.26096"
+        rpy="0 0 0" />
+      <mass
+        value="10.062" />
+      <inertia
+        ixx="0.46054" ixy="0.00012557" ixz="0.0011636" iyy="0.44294" iyz="-0.0010075" izz="0.044695" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_2"
+    type="continuous">
+    <origin
+      xyz="0.025 0 0.183"
+      rpy="0 0.030324 0" />
+    <parent
+      link="Link_1" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="100.0" lower="${radians(-190)}" upper="${radians(45)}" velocity="3.0"/>
+  </joint>
+  <link
+    name="Link_3">
+    <inertial>
+      <origin
+        xyz="0.01607 2.4742E-05 0.010478"
+        rpy="0 0 0" />
+      <mass
+        value="2.8742" />
+      <inertia
+        ixx="0.0081773" ixy="5.2843E-07" ixz="-0.001403" iyy="0.011138" iyz="-3.9399E-06" izz="0.0098413" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_3"
+    type="continuous">
+    <origin
+      xyz="0 0 0.56"
+      rpy="0 -0.030324 0" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Link_3" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="100.0" lower="${radians(-120)}" upper="${radians(156)}" velocity="3.0"/>
+  </joint>
+  <link
+    name="Link_4">
+    <inertial>
+      <origin
+        xyz="0.195135071129115 -0.000495676139749157 0.000329967769836514"
+        rpy="0 0 0" />
+      <mass
+        value="4.03663145228616" />
+      <inertia
+        ixx="0.00730922398336463" ixy="0.000159842043039673" ixz="1.65930077842008E-05" iyy="0.050510947187081" iyz="1.2870678239384E-05" izz="0.0514268011742754" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_4"
+    type="continuous">
+    <origin
+      xyz="0.10698 0 0.035"
+      rpy="0 0 0" />
+    <parent
+      link="Link_3" />
+    <child
+      link="Link_4" />
+    <axis
+      xyz="1 0 0" />
+    <limit effort="100.0" lower="${radians(-185)}" upper="${radians(185)}" velocity="3.0"/>
+  </joint>
+  <link
+    name="Link_5">
+    <inertial>
+      <origin
+        xyz="0.016609 0.0018881 -2.9968E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.44798" />
+      <inertia
+        ixx="0.0003228" ixy="1.7323E-05" ixz="3.1168E-07" iyy="0.00055318" iyz="3.2728E-07" izz="0.000587" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_5"
+    type="continuous">
+    <origin
+      xyz="0.40802 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link_4" />
+    <child
+      link="Link_5" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="100.0" lower="${radians(-120)}" upper="${radians(120)}" velocity="3.0"/>
+  </joint>
+  <link
+    name="Link_6">
+    <inertial>
+      <origin
+        xyz="0.00597810440147417 5.10702591327572E-15 4.33845548888367E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.013916296749675" />
+      <inertia
+        ixx="3.00536975491689E-06" ixy="-4.34141304474807E-19" ixz="-5.47706612238767E-10" iyy="1.70742988099984E-06" iyz="-1.14708832938369E-18" izz="1.69800715833737E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kuka_kr10_urdf/meshes/Link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_6"
+    type="continuous">
+    <origin
+      xyz="0.0665 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link_5" />
+    <child
+      link="Link_6" />
+    <axis
+      xyz="1 0 0" />
+    <limit effort="150.0" lower="${radians(-350)}" upper="${radians(350)}" velocity="3.0"/>
+  </joint>
+  
+ <!-- Friction definition set to 1 -->
+  <gazebo reference="base_link">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="Link_1">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="Link_2">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="Link_3">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="Link_4">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="Link_5">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="Link_6">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  
+ <!-- Transmissions -->
+ <transmission name="trans_Joint_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Joint_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_Joint_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Joint_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_Joint_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Joint_3_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_Joint_4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_4">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Joint_4_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_Joint_5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_5">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Joint_5_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_Joint_6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_6">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Joint_6_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    
+</robot>

@@ -1,0 +1,16 @@
+<launch>
+  
+  <rosparam file="$(find kr10_moveit)/config/pid_gains.yaml" command="load"/>
+  <rosparam file="$(find kr10_moveit)/config/gazebo_controllers.yaml" command="load"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/" args="joint_state_controller arm_controller "/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <!--remap from="/joint_states" to="/kr10/joint_states" /-->
+  </node>
+
+</launch>
+
+
