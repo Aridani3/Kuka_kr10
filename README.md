@@ -1,3 +1,9 @@
+# Robot URDF
+* Import the CAD of the Kuka kr10 from [grabcad](https://grabcad.com/library/kuka-kr-agilus-1).  
+* Used MeshLab to clean the cad (e.g., deleting duplicate faces).  
+* Creating the Unified Robotic Description Format (URDF) file using Solidworks' URDF exporter.  
+* Followed several steps to get a URDF robot properly working in [Gazebo](http://gazebosim.org/tutorials?tut=ros_urdf).
+
 # Prerequisites
 * Tested on ROS NOETIC
 * Required Packages:
