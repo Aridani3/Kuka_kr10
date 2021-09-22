@@ -58,6 +58,6 @@ rosrun kr10_scan scan.py
 roscd kr10_scan/scripts/
 python3 crop.py
 ```
-
+![alt text](https://github.com/Aridani3/Kuka_kr10/kr10_scan/images/Result.jpg?raw=true)
 
 
