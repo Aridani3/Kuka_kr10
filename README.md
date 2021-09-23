@@ -8,9 +8,9 @@
 * Tested on ROS NOETIC
 * Required Packages:
 ```
-sudo apt-get install ros-kinetic-gazebo-ros-pkg    
-sudo apt-get install ros-kinetic-gazebo-ros-control
-sudo apt-get install ros-kinetic-moveit
+sudo apt-get install ros-noetic-gazebo-ros-pkg    
+sudo apt-get install ros-noetic-gazebo-ros-control
+sudo apt-get install ros-noetic-moveit
 ```
 
 # Installation
@@ -23,8 +23,7 @@ git clone https://github.com/Aridani3/Kuka_kr10.git
 cd ..
 catkin init
 catkin build
-source devel/setup.bash![artwork_gazebo](https://user-images.githubusercontent.com/59964996/134346443-32ec9e9e-26ae-4491-ba88-e3e7f101327d.png)
-
+source devel/setup.bash
 ```
 
 # Moveit
@@ -76,13 +75,14 @@ Resulting on these four images:
   <img src="https://github.com/Aridani3/Kuka_kr10/blob/main/kr10_scan/images/Image_3.jpg" height="200" width="200">
 </p>
 
-Running the following stitches the images and extract the artwork from background
+Running the following stitches the images and extract the artwork from background:
 
 ```
 roscd kr10_scan/scripts/
 python3 crop.py
 ```
 
+Result:
 
 <p align="center">
   <img src="https://github.com/Aridani3/Kuka_kr10/blob/main/kr10_scan/images/Box_result.jpg" height="300" width="323">
